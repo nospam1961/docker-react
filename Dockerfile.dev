@@ -1,0 +1,11 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+# docker-compose.yml will point to volume and no need for COPY
+COPY . . 
+
+CMD ["npm", "run", "start"]
